@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Api from '../../services/service';
+import Api from '../../service/service';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,10 +9,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-const ListUsers = ({ loginUser, updateUser }) => {
-
+const ListUsers = ({ updateUser }) => {
     const api = new Api();
-
     const [users, setUsers] = useState([]);
     const [totalPages, setTotalPages] = useState(null);
 
@@ -51,8 +49,6 @@ const ListUsers = ({ loginUser, updateUser }) => {
             return [...usersPrev.slice(0, idx), ...usersPrev.slice(idx + 1)];
         });
     }
-
-
     const tableRows = users.map((user) => {
         return (
 

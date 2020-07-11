@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Route, useHistory } from 'react-router-dom';
 
 import axios from 'axios'
@@ -12,36 +12,36 @@ import UpdateUser from '../personUpdate/personUpdate';
 const App = () => {
     const history = useHistory();
 
-    const [updatedUserId, setUpdatedUserId] = useState(null);
+    const [updatedPersonId, setupdatedPersonId] = useState(null);
 
- 
+
 
     const updateUser = (id) => {
         history.push('/update');
-        setUpdatedUserId(id);
+        setupdatedPersonId(id);
     }
 
-    const createElement = 
-       <CreateUser /> 
+    const createElement =
+        <CreateUser />
     const userList =
-       <ListUsers updateUser={updateUser}/> 
+        <ListUsers updateUser={updateUser} />
 
     return (
         <div>
 
             <Route path="/" render={() => {
                 return (
-                    <React.Fragment>        
-                        
+                    <React.Fragment>
+
                         {createElement}
                         {userList}
                     </React.Fragment>
                 );
-            }} exact/>
+            }} exact />
 
-         
-            <Route path="/update" render={() => <UpdateUser updatedUserId={updatedUserId}/>
-            } exact/>
+
+            <Route path="/update" render={() => <UpdateUser updatedPersonId={updatedPersonId} />
+            } exact />
 
 
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Api from '../../services/service';
+import Api from '../../service/service';
 import { Input } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,15 +21,13 @@ const CreateUser = () => {
     const [name, setName] = useState('');
     const [job, setJob] = useState('');
 
-    const onNameChange = (event) => {
+    const Name = (event) => {
         setName(event.target.value);
     }
 
     const onJobChange = (event) => {
         setJob(event.target.value);
     }
-
-
     const onSubmit = (event) => {
         event.preventDefault();
         api.postData({ name, job }, 'users')
@@ -43,7 +41,7 @@ const CreateUser = () => {
             <h1>Add Person</h1>
 
             <TextField id="standard-basic" label="Enter name" type="text"
-                onChange={onNameChange}
+                onChange={Name}
                 value={name} />
             <TextField id="standard-basic" label="Enter Job" type="text"
                 onChange={onJobChange}

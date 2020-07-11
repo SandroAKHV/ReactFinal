@@ -1,6 +1,6 @@
 class Api {
     _apiBase = 'https://reqres.in/';
-   
+
     async postData(userData, url) {
 
         const res = await fetch(`${this._apiBase}api/${url}`, {
@@ -11,11 +11,10 @@ class Api {
             },
             body: JSON.stringify(userData)
         });
-
         return await res.json();
     }
     async updateUser(userData, id) {
-        
+
         const res = await fetch(`${this._apiBase}api/users/${id}`, {
             method: 'put',
             headers: {
@@ -43,7 +42,7 @@ class Api {
 
 
 
-    
+
 }
 
 
